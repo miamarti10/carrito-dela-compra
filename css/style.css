@@ -24,10 +24,26 @@ header h3{
     margin-top: 2px;
 }
 
-#table{
+#container{
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#producto{
+    display: inline-block;
+    margin: 20px;
+}
+#productList{
+    height: 56px;
+}
+#unidades {
+    width: 40px;
+    height: 50px;
+}
+
+table{
+    width: 950px;
 }
 
 #tableTitle{
