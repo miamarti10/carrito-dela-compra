@@ -4,6 +4,8 @@ const sumPrice = document.getElementById('preu'); // Sumatorio del precio unitar
 const operation = document.getElementById("calcula");  // Boton que lanza la función doMaths
 const units = document.getElementById("unidades"); // Campo number donde se indican las unidades que se van a añadir al carrito
 
+const carritoFila = document.getElementById('carritoRow');
+
 // Esta función pinta una opción en el elemento option creando una opción select
 // name = nombre del producto que se va a mostrar
 const addSelectOption = (name, price) => {
@@ -12,6 +14,16 @@ const addSelectOption = (name, price) => {
     select.setAttribute("value", price) // Asignamos como atrinuto el precio
     select.setAttribute("name", name);
     optionList.appendChild(select);  // Añadimos el elemento al select
+}
+
+// Esta función pinta una opción en el elemento option creando una opción select
+// name = nombre del producto que se va a mostrar
+const addProductCart = () => {
+    
+    // Creamos el primer <tr> para la columna de cantidad
+    const columnProduct = document.createElement('td'); // Elemento a crear de tipo option
+    columnProduct.innerHTML = units.value; // Texto de entre los tags <tr>
+    carritoFila.appendChild(columnProduct);  // Añadimos el elemento al select
 }
 
 
@@ -43,4 +55,4 @@ const doMaths = () => {
 
 
 loadProducts(); // Pintamos el selcector en el html con los valores del JSON
-operation.addEventListener('click', doMaths); // Escuchamos el boton calcula prar mostrar el precio total
+operation.addEventListener('click', addProductCart); // Escuchamos el boton calcula prar mostrar el precio total
