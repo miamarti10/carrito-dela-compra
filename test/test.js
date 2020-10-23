@@ -35,7 +35,7 @@ const loadProducts = () => {
 // Coge el precio del producto y lo multiplica por las unidades seleccionadas
 const doMaths = () => {
     let price = optionList.value; // Leemos el valor seleccionado en el desplegable
-    let opt = optionList.options[optionList.selectedIndex];
+    let opt = optionList.options[optionList.selectedIndex]; // Leemos el valor texto (nombre del producto) seleccionado en el select
 
     console.log(`${units.value} unidades de ${opt.text} cuestan: ${price * units.value}`);
     sumPrice.innerHTML = price * units.value; // Pintamos el resultado en un <p>
