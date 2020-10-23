@@ -1,17 +1,18 @@
 
-const list = document.getElementById('productList');
-const preu = document.getElementById('preu');
-const boton = document.getElementById("calcula");
-const unidades = document.getElementById("unidades");
+const optionList = document.getElementById('productList'); // Elemento OPTION que contiene el desplegable con las opciones
+const sumPrice = document.getElementById('preu'); // Sumatorio del precio unitario * unidades
+const operation = document.getElementById("calcula");  // Boton que lanza la función doMaths
+const units = document.getElementById("unidades"); // Campo number donde se indican las unidades que se van a añadir al carrito
 
-const productList = () => {
-    //let list = document.getElementById('productList');
-    let tag = document.createElement('p');
-    tag.textContent = 'producte';
-    list.appendChild(tag);
+
+// Esta función pinta una opción en el elemento option creando una opción select
+// name = nombre del producto que se va a mostrar
+const addSelectOption = (name, price) => {
+    const select = document.createElement('option'); // Elemento a crear de tipo option
+    select.innerHTML = name; // Texto de entre los tags <option>
+    select.setAttribute("value", price) // Asignamos como atrinuto el precio
+    optionList.appendChild(select);  // Añadimos el elemento al select
 }
-
-
 
 
 function loadProducts(){
@@ -19,20 +20,20 @@ function loadProducts(){
         .then(response => response.json()) //Indicamos el formato en que se desea obtener la información
         .then(products => {
             products.forEach(product => {
-                const s = document.createElement('option'); // Elemento a crear de tipo option
-                s.innerHTML = product.name; // Texto de entre los tags <option>
-                s.setAttribute("value", product.price) // Asignamos como atrinuto el precio
-                list.appendChild(s);  // Añadimos el elemento al select
+                // Por cada producto del JSON llamamao a la función que pinta las opcines del SELECT 
+                // y le pasamos el nombre y el precio
+                addSelectOption(product.name, product.price); 
             });
         })
         .catch(error => console.log('Crash : ' + error.message)) // Capturamos el error si no se puede leer JS
 }
 
+// Coge el precio del producto y lo multiplica por las unidades seleccionadas
 const doMaths = () => {
-    let price = list.value;
-    console.log(price * unidades.value);
-    preu.innerHTML = price * unidades.value;
+    let price = optionList.value; // Leemos el valor seleccionado en el desplegable
+    console.log(price * units.value);
+    sumPrice.innerHTML = price * units.value; // Pintamos el resultado en un <p>
 }
 
 loadProducts();
-boton.addEventListener('click', doMaths);
+operation.addEventListener('click', doMaths);
