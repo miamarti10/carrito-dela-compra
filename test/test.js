@@ -14,8 +14,10 @@ const addSelectOption = (name, price) => {
     optionList.appendChild(select);  // Añadimos el elemento al select
 }
 
-
-function loadProducts(){
+// Esta función lee el arxivo products.json y para cada elemento
+// llamam a la función addSelectOption pasandole el nombre y precio de cada
+// producto y esta añade una opción al SELECT
+const loadProducts = () => {
     fetch('products.json')
         .then(response => response.json()) //Indicamos el formato en que se desea obtener la información
         .then(products => {
@@ -27,6 +29,8 @@ function loadProducts(){
         })
         .catch(error => console.log('Crash : ' + error.message)) // Capturamos el error si no se puede leer JS
 }
+
+
 
 // Coge el precio del producto y lo multiplica por las unidades seleccionadas
 const doMaths = () => {
