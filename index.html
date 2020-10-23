@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CARRITO LA COMPRA</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <header>
+    <h1>BIT ACADEMY SHOP</h1>
+    <h3>Los mejores items de la city</h3>
+  </header>
+
+  <main id="wrapper">
+  <!--desplegable-->
+  <label for="">UNIDADES A COMPRAR</label>
+  <input type="number" value="0" required>
+  <button>Añadir</button>
+  <!--table-->
+    <div id="table">
+      <div id="tableTitle">
+        <div>NAME PRODUCT</div>
+        <div>CANTIDAD</div>
+        <div>COSTE UNIDAD</div>
+        <div>PRECIO TOTAL</div>
+        <div>ELIMINAR</div>
+      </div>
+      <!-- ITEMS -->
+      <div class="itemRow">
+        <div>Altavoces Yamaha</div>
+        <div>2</div>
+        <div>5</div>
+        <div>10 €</div>
+        <div><img src="data/icons/detele1.svg" alt="Delete" class="icon"></div>
+      </div>
+      <div class="itemRow">
+        <div>Altavoces Yamaha</div>
+        <div>2</div>
+        <div>5</div>
+        <div>10 €</div>
+        <div><img src="data/icons/detele1.svg" alt="Delete" class="icon"></div>
+      </div>
+      <div class="itemRow">
+        <div>Altavoces Yamaha</div>
+        <div>2</div>
+        <div>5</div>
+        <div>10 €</div>
+        <div><img src="data/icons/detele1.svg" alt="Delete" class="icon"></div>
+      </div>
+      <div class="itemRow">
+        <div>Altavoces Yamaha</div>
+        <div>2</div>
+        <div>5</div>
+        <div>10 €</div>
+        <div><img src="data/icons/detele1.svg" alt="Delete" class="icon"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <select id='productList'>
+
+  </select>
+  <input id="unidades" type="number" value="0">
+  
+  <p id="preu"></p>
+  <button id="calcula">Calcula</button>
+  <script type="text/javascript" src="test.js"></script>
+  <script src="./js/scriptTest.js"></script>
+  <script src="./test.js"></script>
+</body>
+
+</html>

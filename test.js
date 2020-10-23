@@ -19,7 +19,7 @@ const addSelectOption = (name, price) => {
 // llamam a la función addSelectOption pasandole el nombre y precio de cada
 // producto y esta añade una opción al SELECT
 const loadProducts = () => {
-    fetch('products.json')
+    fetch('./data/products.json')
         .then(response => response.json()) //Indicamos el formato en que se desea obtener la información
         .then(products => {
             products.forEach(product => {
