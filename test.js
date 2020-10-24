@@ -4,8 +4,7 @@ const sumPrice = document.getElementById('preu'); // Sumatorio del precio unitar
 const operation = document.getElementById("calcula");  // Boton que lanza la función doMaths
 const units = document.getElementById("unidades"); // Campo number donde se indican las unidades que se van a añadir al carrito
 const eraseButton = document.getElementsByClassName('icon');; // Todos los elemento de la classe icon
-
-const carritoFila = document.getElementById('cart');
+const carritoFila = document.getElementById('cart'); // Tabla que hace de carrito de la compra
 
 // Esta función pinta una opción en el elemento option creando una opción select
 // name = nombre del producto que se va a mostrar
@@ -85,6 +84,7 @@ const doMaths = () => {
     sumPrice.innerHTML = price * units.value; // Pintamos el resultado en un <p>
 }
 
+// Función que elimina producto del carrito de la compra
 const eraseProduct = () => {
     console.log(`clic`);
 }
