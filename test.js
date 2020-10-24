@@ -85,8 +85,8 @@ const doMaths = () => {
 }
 
 // Función que elimina producto del carrito de la compra
-const eraseProduct = () => {
-    console.log(`clic`);
+const eraseProduct = (event) => {
+    event.target.parentNode.remove(); // parenNode recupera el nodo padre del elemento
 }
 
 
