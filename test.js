@@ -3,8 +3,9 @@ const optionList = document.getElementById('productList'); // Elemento OPTION qu
 const sumPrice = document.getElementById('preu'); // Sumatorio del precio unitario * unidades
 const operation = document.getElementById("calcula");  // Boton que lanza la función doMaths
 const units = document.getElementById("unidades"); // Campo number donde se indican las unidades que se van a añadir al carrito
+const eraseButton = document.getElementsByClassName('icon');; // Todos los elemento de la classe icon
 
-const carritoFila = document.getElementById('carritoRow');
+const carritoFila = document.getElementById('cart');
 
 // Esta función pinta una opción en el elemento option creando una opción select
 // name = nombre del producto que se va a mostrar
@@ -20,10 +21,41 @@ const addSelectOption = (name, price) => {
 // name = nombre del producto que se va a mostrar
 const addProductCart = () => {
     
-    // Creamos el primer <tr> para la columna de cantidad
-    const columnProduct = document.createElement('td'); // Elemento a crear de tipo option
-    columnProduct.innerHTML = units.value; // Texto de entre los tags <tr>
-    carritoFila.appendChild(columnProduct);  // Añadimos el elemento al select
+    // Creamos el primer <tr>, fila, para el nuevo producto
+    const cartRow = document.createElement('tr'); 
+    cartRow.classList.add("itemRow");
+    
+
+    // Creo un elemento columna (celda) <td> donde guardar las unidades del producto
+    const productColumn = document.createElement('td');
+    productColumn.innerHTML = optionList.options[optionList.selectedIndex].text; // a la nueva celda le pongo el numero de unidades seleccionadas
+    cartRow.appendChild(productColumn); // añado la celda a la nueva fila
+
+    // Unidades
+    const unitsColumn = document.createElement('td');
+    unitsColumn.innerHTML = units.value;
+    cartRow.appendChild(unitsColumn);
+
+    // Precio
+    const unitPrice = document.createElement('td');
+    unitPrice.innerHTML = optionList.value;
+    cartRow.appendChild(unitPrice);
+
+    // Precio total del producto
+    const totalPrice = document.createElement('td');
+    totalPrice.innerHTML = optionList.value * units.value;
+    cartRow.appendChild(totalPrice);
+
+    // Boton de eliminar
+    const removeButton = document.createElement('img');
+    removeButton.setAttribute("src", "data/icons/detele1.svg");
+    removeButton.classList.add("icon");
+    removeButton.addEventListener('click', eraseProduct); // Al nuevo boton le añadimos un eventListener para que al click se active la funcion eraseProduct
+    cartRow.appendChild(removeButton);
+
+
+    carritoFila.appendChild(cartRow);  // Añadimos la nueva fila a la tabla
+
 }
 
 
@@ -51,6 +83,10 @@ const doMaths = () => {
 
     console.log(`${units.value} unidades de ${opt.text} cuestan: ${price * units.value}`);
     sumPrice.innerHTML = price * units.value; // Pintamos el resultado en un <p>
+}
+
+const eraseProduct = () => {
+    console.log(`clic`);
 }
 
 
