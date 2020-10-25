@@ -19,14 +19,22 @@
       <div id="producto">
         <!--desplegable-->
         <select id='productList'></select>
-        <input id="unidades" type="number" value="0">
+        <input id="unidades" type="number" value="0" placeholder="Unidades">
         <!--<img src="data/icons/add.svg" alt="Add" id="calcula" class="icon">-->
-        <button id="calcula">Añadir</button>
+        <button id="addToCart">Añadir al carrito</button>
+
+        <!--Div que contiene el formulario para añadir productos al inventario de productos-->
+        <div>
+          <input id="newProductName" type="text" placeholder="Nombre del producto">
+          <input id="newProductPrice" type="number" placeholder="Precio">
+          <button id="addToSelectMenu">Añadir al inventario</button>
+        </div>
       </div>
-      <p id="preu"></p>
+      
 
 
       <div>
+        <h1 id="ticket"></h1>
         <!--table-->
         <table id="cart">
           <tr id="tableTitle">

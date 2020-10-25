@@ -1,19 +1,32 @@
 
+// Elementos del menu option
 const optionList = document.getElementById('productList'); // Elemento OPTION que contiene el desplegable con las opciones
-const sumPrice = document.getElementById('preu'); // Sumatorio del precio unitario * unidades
-const operation = document.getElementById("calcula");  // Boton que lanza la función doMaths
 const units = document.getElementById("unidades"); // Campo number donde se indican las unidades que se van a añadir al carrito
+const operation = document.getElementById("addToCart");  // Boton que lanza la función para añadir producto al carrito
+
+// Elementos de la tabla
 const eraseButton = document.getElementsByClassName('icon');; // Todos los elemento de la classe icon
 const carritoFila = document.getElementById('cart'); // Tabla que hace de carrito de la compra
+
+// Elementos añadir al formulario
+const addProductToInventori = document.getElementById('addToSelectMenu'); // Boton que añade productos al inventario
+const newProductName = document.getElementById('newProductName'); // Campo que recoge el nombre del nuevo producto
+const newProductPrice = document.getElementById('newProductPrice'); // Campo que recoge el precio del nuevo producto
+
+// Suma total de todos los productos
+let sumTotal = 0;
+const ticket = document.getElementById('ticket'); // Elemento h1 donde mostraremos el total
 
 // Esta función pinta una opción en el elemento option creando una opción select
 // name = nombre del producto que se va a mostrar
 const addSelectOption = (name, price) => {
+    console.log("funcion añador opc al select");
     const select = document.createElement('option'); // Elemento a crear de tipo option
     select.innerHTML = name; // Texto de entre los tags <option>
     select.setAttribute("value", price) // Asignamos como atrinuto el precio
     select.setAttribute("name", name);
     optionList.appendChild(select);  // Añadimos el elemento al select
+    return;
 }
 
 // Esta función pinta una opción en el elemento option creando una opción select
@@ -55,6 +68,20 @@ const addProductCart = () => {
 
     carritoFila.appendChild(cartRow);  // Añadimos la nueva fila a la tabla
 
+    // Sumamos el precio total al sumatorio total de todos los productos
+   // sumTotal += (optionList.value * units.value);
+    dispplaySum((optionList.value * units.value), 'add');
+    
+    //dispplaySum();
+
+}
+
+// Esta función recoge el precio y la operación a realizar (sumar o restar al total)
+// y actualiza el html para mostrarlo por pantalla
+const dispplaySum = (price, operation) => {
+    (operation === 'add') ? sumTotal += price : sumTotal -= price;
+    console.log(`Total a pagar: ${sumTotal}`);
+    ticket.innerHTML = sumTotal;
 }
 
 
@@ -75,20 +102,21 @@ const loadProducts = () => {
 }
 
 
-// Coge el precio del producto y lo multiplica por las unidades seleccionadas
-const doMaths = () => {
-    let price = optionList.value; // Leemos el valor seleccionado en el desplegable
-    let opt = optionList.options[optionList.selectedIndex]; // Leemos el valor texto (nombre del producto) seleccionado en el select
-
-    console.log(`${units.value} unidades de ${opt.text} cuestan: ${price * units.value}`);
-    sumPrice.innerHTML = price * units.value; // Pintamos el resultado en un <p>
-}
-
 // Función que elimina producto del carrito de la compra
 const eraseProduct = (event) => {
+    // al borrar el producto le mandamos el precio total a la funcion que mantiene el total
+    // previousSibling recupera el td previo, en este caso el precio unitario*unidades
+    dispplaySum(event.target.previousSibling.innerHTML, 'sustrac'); 
     event.target.parentNode.remove(); // parenNode recupera el nodo padre del elemento
 }
 
+operation.addEventListener('click', addProductCart); // Escuchamos el boton calcula prar mostrar el precio total
+
+// El eventListener no funciona si lo invoco como en la linia anterior, ni idea de poqruqe preguntar a Raul
+addProductToInventori.addEventListener("click", function(){
+    addSelectOption(newProductName.value, newProductPrice.value);
+ });
+
 
 loadProducts(); // Pintamos el selcector en el html con los valores del JSON
-operation.addEventListener('click', addProductCart); // Escuchamos el boton calcula prar mostrar el precio total
+
