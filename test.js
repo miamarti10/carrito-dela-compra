@@ -81,7 +81,8 @@ const addProductCart = () => {
 const dispplaySum = (price, operation) => {
     (operation === 'add') ? sumTotal += price : sumTotal -= price;
     console.log(`Total a pagar: ${sumTotal}`);
-    ticket.innerHTML = sumTotal;
+    let redondeo = parseFloat(Math.round(sumTotal * 100) / 100).toFixed(2);
+    ticket.innerHTML = "Total " + redondeo + " €";
 }
 
 

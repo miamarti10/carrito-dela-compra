@@ -2,10 +2,10 @@
 html{
     margin: 0;
     padding: 0;
-}
-
-body{
+    font-family: sans-serif;
     background-color: #FFF;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 header{
@@ -33,17 +33,48 @@ header h3{
 #producto{
     display: inline-block;
     margin: 20px;
+    flex: 1 1 35%;
 }
+
+#factura{
+    flex: 1 1 60%;
+    display: inline-block;
+}
+
+
+#factura h1{
+    display: inline-block;
+}
+
+#factura table{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 #productList{
     height: 56px;
 }
 #unidades {
-    width: 40px;
-    height: 50px;
+    width: 50px;
 }
 
 table{
-    width: 950px;
+    width: 65%;
+}
+
+input, select{
+    border-radius: 5px;
+    height: 50px;
+}
+
+button{
+    height: 55px;
+    font-weight: bold;
+}
+
+#addCarrito{
+    padding-bottom: 20px;
 }
 
 #tableTitle{
@@ -62,6 +93,7 @@ table{
     flex-direction: row;
     justify-content: space-around;
     background-color: #F2F2F2;
+    font-size: 13.5px;
 }
 
 .itemRowWhite{
