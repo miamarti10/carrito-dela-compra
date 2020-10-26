@@ -96,6 +96,8 @@ button{
     font-size: 13.5px;
     padding-left: 10px;
     padding-right: 75px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .itemRowWhite{
@@ -105,4 +107,6 @@ button{
 .icon{
     width: 25px;
     height: 25px;
+    cursor: pointer;
+    margin-top: -5px;
 }
