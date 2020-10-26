@@ -55,7 +55,7 @@ const addProductCart = () => {
 
     // Precio total del producto
     const totalPrice = document.createElement('td');
-    totalPrice.innerHTML = optionList.value * units.value + " €";
+    totalPrice.innerHTML = optionList.value * units.value;
     cartRow.appendChild(totalPrice);
 
     // Boton de eliminar
@@ -81,8 +81,8 @@ const addProductCart = () => {
 const dispplaySum = (price, operation) => {
     (operation === 'add') ? sumTotal += price : sumTotal -= price;
     console.log(`Total a pagar: ${sumTotal}`);
-    let redondeo = parseFloat(Math.round(sumTotal * 100) / 100).toFixed(2);
-    ticket.innerHTML = "Total " + redondeo + " €";
+    let redondeo = Math.round(sumTotal * 100) / 100;
+    ticket.innerHTML = redondeo;
 }
 
 

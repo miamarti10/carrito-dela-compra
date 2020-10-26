@@ -100,6 +100,10 @@ button{
     padding-bottom: 10px;
 }
 
+.itemRow td:nth-last-of-type(1)::after{
+    content: " €";
+}
+
 .itemRowWhite{
     background-color: #FFF;
 }
