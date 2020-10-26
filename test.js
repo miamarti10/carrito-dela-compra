@@ -50,12 +50,12 @@ const addProductCart = () => {
 
     // Precio
     const unitPrice = document.createElement('td');
-    unitPrice.innerHTML = optionList.value;
+    unitPrice.innerHTML = optionList.value + " €";
     cartRow.appendChild(unitPrice);
 
     // Precio total del producto
     const totalPrice = document.createElement('td');
-    totalPrice.innerHTML = optionList.value * units.value;
+    totalPrice.innerHTML = optionList.value * units.value + " €";
     cartRow.appendChild(totalPrice);
 
     // Boton de eliminar

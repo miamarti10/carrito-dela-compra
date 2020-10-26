@@ -20,7 +20,7 @@
         <!--desplegable-->
         <div id="addCarrito">
           <select id='productList'></select>
-          <input id="unidades" type="number" min=1 max=99 placeholder="Unidades">
+          <input id="unidades" type="number" min="1" max="99" placeholder="Unidades" value="1" onkeypress="validationLength('unidades', 'newProductPrice')">
           <!--<img src="data/icons/add.svg" alt="Add" id="calcula" class="icon">-->
           <button id="addToCart">Añadir al carrito</button>
         </div>
@@ -28,7 +28,7 @@
         <!--Div que contiene el formulario para añadir productos al inventario de productos-->
         <div>
           <input id="newProductName" type="text" placeholder="Nombre del producto" maxlength="20">
-          <input id="newProductPrice" type="number" placeholder="Precio" min=0 max="1">
+          <input id="newProductPrice" type="number" placeholder="Precio" min="0" max="99" onkeypress="validationLength('newProductPrice', 'unidades')">
           <button id="addToSelectMenu">Añadir al inventario</button>
         </div>
       </div>
@@ -50,7 +50,6 @@
         </table>
       </div>
     </div>
-
 
   </main>
   <script type="text/javascript" src="test.js"></script>
