@@ -1,4 +1,3 @@
-
 // Elementos del menu option
 const optionList = document.getElementById('productList'); // Elemento OPTION que contiene el desplegable con las opciones
 const units = document.getElementById("unidades"); // Campo number donde se indican las unidades que se van a añadir al carrito
@@ -90,7 +89,7 @@ const dispplaySum = (price, operation) => {
 // llamam a la función addSelectOption pasandole el nombre y precio de cada
 // producto y esta añade una opción al SELECT
 const loadProducts = () => {
-    fetch('products.json')
+    fetch('./data/products.json')
         .then(response => response.json()) //Indicamos el formato en que se desea obtener la información
         .then(products => {
             products.forEach(product => {
@@ -121,3 +120,23 @@ addProductToInventori.addEventListener("click", function(){
 
 loadProducts(); // Pintamos el selcector en el html con los valores del JSON
 
+document.getElementById("addToCart").addEventListener('click', ()=>{
+    let itemsRowElements = document.getElementsByClassName('itemRow');
+    for(let i=0; i<itemsRowElements.length; i++){
+        if(i%2!=0){
+            itemsRowElements[i].classList.add("itemRowWhite");
+        }
+    }
+});
+
+let validationLength = (nameID, nameID2)=>{
+    document.getElementById(nameID).addEventListener('keydown', (e) => {
+        if(document.getElementById(nameID).value.length > 1){
+            document.getElementById(nameID2).style.backgroundColor = "white";
+
+            alert("Introduce un número de máximo 2 digitos");
+            document.getElementById(nameID).style.backgroundColor = "indianred";
+            document.getElementById(nameID).value = 1;
+        }
+    });
+}
