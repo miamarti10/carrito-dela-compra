@@ -1,116 +1,144 @@
+@charset "UTF-8";
 /* RESET */
-html{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    background-color: #FFF;
-    margin-left: 20px;
-    margin-right: 20px;
+html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: white;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
-header{
-    background-color: #415D7C;
-    color: white;
-    height: 12vh;
-    padding: 5px 5px 5px 50px;
-    margin-bottom: 5px;
+header {
+  background-color: #415D7C;
+  color: white;
+  height: 12vh;
+  padding: 5px 5px 5px 50px;
+  margin-bottom: 5px;
 }
 
-header h1{
-    margin-bottom: 2px;
+header h1 {
+  margin-bottom: 2px;
 }
 
-header h3{
-    margin-top: 2px;
+header h3 {
+  margin-top: 2px;
 }
 
-#container{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+#container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-#producto{
-    display: inline-block;
-    margin: 20px;
-    flex: 1 1 35%;
+#producto {
+  display: inline-block;
+  margin: 20px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 35%;
+          flex: 1 1 35%;
 }
 
-#factura{
-    flex: 1 1 60%;
-    display: inline-block;
+#factura {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 60%;
+          flex: 1 1 60%;
+  display: inline-block;
 }
 
-
-#factura h1{
-    display: inline-block;
+#factura h1 {
+  display: inline-block;
 }
 
-#factura table{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+#factura table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
 }
 
-#productList{
-    height: 56px;
+#productList {
+  height: 56px;
 }
+
 #unidades {
-    width: 50px;
+  width: 50px;
 }
 
-table{
-    width: 65%;
+table {
+  width: 65%;
 }
 
-input, select{
-    border-radius: 5px;
-    height: 50px;
+input, select {
+  border-radius: 5px;
+  height: 50px;
 }
 
-button{
-    height: 55px;
-    font-weight: bold;
+button {
+  height: 55px;
+  font-weight: bold;
 }
 
-#addCarrito{
-    padding-bottom: 20px;
+#addCarrito {
+  padding-bottom: 20px;
 }
 
-#tableTitle{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-weight: bold;
-    border-top: 2px gray solid;
-    border-bottom: 2px gray solid;
-    margin-top: 20px;
+#tableTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-weight: bold;
+  border-top: 2px gray solid;
+  border-bottom: 2px gray solid;
+  margin-top: 20px;
 }
 
-.itemRow{
-    padding-top: 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: #F2F2F2;
-    font-size: 13.5px;
-    padding-left: 10px;
-    padding-right: 75px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.itemRow {
+  padding-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #F2F2F2;
+  font-size: 13.5px;
+  padding-left: 10px;
+  padding-right: 75px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.itemRow td:nth-last-of-type(1)::after{
-    content: " €";
+.itemRow td:nth-last-of-type(1)::after {
+  content: " €";
 }
 
-.itemRowWhite{
-    background-color: #FFF;
+.itemRowWhite {
+  background-color: #FFF;
 }
 
-.icon{
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-    margin-top: -5px;
+.icon {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  margin-top: -5px;
 }
+/*# sourceMappingURL=style.css.map */
