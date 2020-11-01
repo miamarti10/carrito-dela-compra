@@ -26,43 +26,24 @@ header h3 {
 }
 
 #container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 #producto {
   display: inline-block;
   margin: 20px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 35%;
-          flex: 1 1 35%;
+  flex: 1 1 35%;
 }
 
 #factura {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 60%;
-          flex: 1 1 60%;
+  flex: 1 1 60%;
   display: inline-block;
 }
 
 #factura h1 {
   display: inline-block;
-}
-
-#factura table {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
 }
 
 #productList {
@@ -92,15 +73,9 @@ button {
 }
 
 #tableTitle {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-around;
   font-weight: bold;
   border-top: 2px gray solid;
   border-bottom: 2px gray solid;
@@ -109,16 +84,9 @@ button {
 
 .itemRow {
   padding-top: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: #F2F2F2;
   font-size: 13.5px;
   padding-left: 10px;
@@ -141,4 +109,14 @@ button {
   cursor: pointer;
   margin-top: -5px;
 }
+
+#cart {
+  width: 100%;
+  text-align: left;
+}
+
+#cart th {
+  border-bottom: 1px solid black;
+}
+
 /*# sourceMappingURL=style.css.map */

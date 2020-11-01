@@ -46,11 +46,11 @@ header h3{
     display: inline-block;
 }
 
-#factura table{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
+// #factura table{
+//     display: flex;
+//     flex-direction: column;
+//     width: 100%;
+// }
 
 #productList{
     height: 56px;
@@ -113,4 +113,15 @@ button{
     height: 25px;
     cursor: pointer;
     margin-top: -5px;
+}
+
+
+// NUEVO
+#cart {
+    width: 100%;
+    text-align: left;
+}
+
+#cart th {
+    border-bottom: 1px solid black;
 }

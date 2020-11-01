@@ -34,7 +34,8 @@ const addProductCart = () => {
     
     // Creamos el primer <tr>, fila, para el nuevo producto
     const cartRow = document.createElement('tr'); 
-    cartRow.classList.add("itemRow");
+    // cartRow.classList.add("itemRow");
+    cartRow.classList.add('row');
     
 
     // Creo un elemento columna (celda) <td> donde guardar las unidades del producto
@@ -64,7 +65,7 @@ const addProductCart = () => {
     removeButton.addEventListener('click', eraseProduct); // Al nuevo boton le añadimos un eventListener para que al click se active la funcion eraseProduct
     cartRow.appendChild(removeButton);
 
-
+    // cartRow.classList.add('productos_carrito');
     carritoFila.appendChild(cartRow);  // Añadimos la nueva fila a la tabla
 
     // Sumamos el precio total al sumatorio total de todos los productos
