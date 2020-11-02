@@ -1,3 +1,10 @@
+// Array de Stock
+const stock = [];
+const stockSelect = document.getElementById('stockUnits');
+const sumarStock = document.getElementById('sumarUnidades');
+const newStock = document.getElementById('addtoStock');
+const stockList = document.getElementById('stockList');
+
 // Elementos del menu option
 const optionList = document.getElementById('productList'); // Elemento OPTION que contiene el desplegable con las opciones
 const units = document.getElementById("unidades"); // Campo number donde se indican las unidades que se van a añadir al carrito
@@ -6,6 +13,7 @@ const operation = document.getElementById("addToCart");  // Boton que lanza la f
 // Elementos de la tabla
 const eraseButton = document.getElementsByClassName('icon');; // Todos los elemento de la classe icon
 const carritoFila = document.getElementById('cart'); // Tabla que hace de carrito de la compra
+const addToStock = document.getElementById('addtoStock');
 
 // Elementos añadir al formulario
 const addProductToInventori = document.getElementById('addToSelectMenu'); // Boton que añade productos al inventario
@@ -25,6 +33,13 @@ const addSelectOption = (name, price) => {
     select.setAttribute("value", price) // Asignamos como atrinuto el precio
     select.setAttribute("name", name);
     optionList.appendChild(select);  // Añadimos el elemento al select
+    
+    
+    const stSelect = document.createElement('option'); // Elemento a crear de tipo option
+    stSelect.innerHTML = name; // Texto de entre los tags <option>
+    stSelect.setAttribute("value", name) // Asignamos como atrinuto el precio
+    stSelect.setAttribute("name", name);
+    stockSelect.appendChild(stSelect);
     return;
 }
 
@@ -97,11 +112,118 @@ const loadProducts = () => {
                 // Por cada producto del JSON llamamao a la función que pinta las opcines del SELECT 
                 // y le pasamos el nombre y el precio
                 addSelectOption(product.name, product.price); 
+                let s = {
+                    product: product.name,
+                    quantity: product.quantity,
+                    id: product._id,
+                    category: product.category
+                }
+
+                stock.push(s);
+
+
+                
+                
             });
+
+            listStock();
         })
         .catch(error => console.log('Crash : ' + error.message)) // Capturamos el error si no se puede leer JS
 }
 
+// Funcion demandProduct()
+const stockDemandProduct = (productName, units = Math.floor(Math.random() * 9) + 1) => {
+
+    console.log(`demandProduct`);
+
+    let st = {
+        product: productName,
+        quantity: units
+    };
+    console.log(st);
+    // return st;
+    loadStock(st);
+
+}
+
+
+// Pinta per pantalla stock
+const listStock = () => {
+
+
+    while(stockList.firstChild){
+        stockList.firstChild.remove();
+    }       
+
+    const stockRow = document.createElement('tr'); 
+
+        // Obra una cel·la
+        const stockIdColumn = document.createElement('th');
+        stockIdColumn.innerHTML = "ID";
+        stockRow.appendChild(stockIdColumn);
+
+        // Obra una cel·la
+        const stockNameColumns = document.createElement('tH');
+        stockNameColumns.innerHTML = "PRODUCT";
+        stockRow.appendChild(stockNameColumns);
+
+        // Obra una cel·la
+        const stockCategoryColumn = document.createElement('th');
+        stockCategoryColumn.innerHTML = "CATEGORY";
+        stockRow.appendChild(stockCategoryColumn);
+
+        // Obra una cel·la
+        const stockUnitsColumns = document.createElement('th');
+        stockUnitsColumns.innerHTML = "UNITS";
+        stockRow.appendChild(stockUnitsColumns);
+
+        stockList.appendChild(stockRow);
+
+
+    for(s in stock){
+
+        // Obro fila de la taula
+        const stockRow = document.createElement('tr'); 
+
+        // Obra una cel·la
+        const stockIdColumn = document.createElement('td');
+        stockIdColumn.innerHTML = stock[s].id;
+        stockRow.appendChild(stockIdColumn);
+
+        // Obra una cel·la
+        const stockNameColumns = document.createElement('td');
+        stockNameColumns.innerHTML = stock[s].product;
+        stockRow.appendChild(stockNameColumns);
+
+        // Obra una cel·la
+        const stockCategoryColumn = document.createElement('td');
+        stockCategoryColumn.innerHTML = stock[s].category;
+        stockRow.appendChild(stockCategoryColumn);
+
+        // Obra una cel·la
+        const stockUnitsColumns = document.createElement('td');
+        stockUnitsColumns.innerHTML = stock[s].quantity;
+        stockRow.appendChild(stockUnitsColumns);
+
+        stockList.appendChild(stockRow);
+
+    }
+
+    
+    
+
+}
+
+// Función que loadStock()
+const loadStock = (product) => {
+    for(s in stock){
+        if(stock[s].product == product.product){
+            stock[s].quantity = Number(product.quantity);
+        }
+    }
+
+    listStock();
+}
 
 // Función que elimina producto del carrito de la compra
 const eraseProduct = (event) => {
@@ -112,12 +234,17 @@ const eraseProduct = (event) => {
 }
 
 operation.addEventListener('click', addProductCart); // Escuchamos el boton calcula prar mostrar el precio total
+console.log(stock);
+//newStock.addEventListener('click', stockDemandProduct(stockSelect.value, sumarUnidades.value));
 
 // El eventListener no funciona si lo invoco como en la linia anterior, ni idea de poqruqe preguntar a Raul
-addProductToInventori.addEventListener("click", function(){
-    addSelectOption(newProductName.value, newProductPrice.value);
- });
+addToStock.addEventListener("click", function(){
+    stockDemandProduct(stockSelect.value, sumarUnidades.value);
+});
 
+//addProductToInventori.addEventListener('click', demandProduct());
+
+// window.onload = listStock;
 
 loadProducts(); // Pintamos el selcector en el html con los valores del JSON
 

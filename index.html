@@ -32,6 +32,12 @@
           <button id="addToSelectMenu">Añadir al inventario</button>
         </div>
       </div>
+      <div id="stock">
+        <select id="stockUnits"></select>
+        <input id="sumarUnidades" type="number" min="1" max="99" placeholder="Unidades" value="1" onkeypress="validationLength('unidades', 'newProductPrice')">
+        <!--<img src="data/icons/add.svg" alt="Add" id="calcula" class="icon">-->
+        <button id="addtoStock">Añadir al stock</button>
+      </div>
 
 
 
@@ -50,6 +56,17 @@
           <!-- </tr> -->
         </table>
       </div>
+    </div>
+
+    <div class="stocTable">
+      <table id="stockList">
+        <tr>
+          <th>ID</th>
+          <th>PRODUCT</th>
+          <th>CATEGORY</th>
+          <th>UNITS</th>
+        </tr>
+      </table>
     </div>
 
   </main>
