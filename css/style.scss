@@ -1,5 +1,5 @@
 /* RESET */
-html{
+html {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -8,7 +8,7 @@ html{
     margin-right: 20px;
 }
 
-header{
+header {
     background-color: #415D7C;
     color: white;
     height: 12vh;
@@ -16,68 +16,44 @@ header{
     margin-bottom: 5px;
 }
 
-header h1{
+header h1 {
     margin-bottom: 2px;
 }
 
-header h3{
+header h3 {
     margin-top: 2px;
 }
 
-#container{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
 
-#producto{
-    display: inline-block;
+#producto {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     margin: 20px;
     flex: 1 1 35%;
 }
 
-#factura{
-    flex: 1 1 60%;
-    display: inline-block;
-}
-
-
-#factura h1{
-    display: inline-block;
-}
-
-// #factura table{
-//     display: flex;
-//     flex-direction: column;
-//     width: 100%;
-// }
-
-#productList{
-    height: 56px;
-}
-#unidades {
-    width: 50px;
-}
-
-table{
-    width: 65%;
-}
-
-input, select{
-    border-radius: 5px;
-    height: 50px;
-}
-
-button{
-    height: 55px;
-    font-weight: bold;
-}
-
-#addCarrito{
+#addCarrito {
     padding-bottom: 20px;
 }
 
-#tableTitle{
+section{
+    display:flex;
+    flex-direction: row;
+
+
+}
+
+#factura {
+
+}
+
+.stocTable{
+    margin-top: 50px;
+
+}
+
+#tableTitle {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -87,7 +63,7 @@ button{
     margin-top: 20px;
 }
 
-.itemRow{
+.itemRow {
     padding-top: 5px;
     display: flex;
     flex-direction: row;
@@ -100,15 +76,15 @@ button{
     padding-bottom: 10px;
 }
 
-.itemRow td:nth-last-of-type(1)::after{
+.itemRow td:nth-last-of-type(1)::after {
     content: " €";
 }
 
-.itemRowWhite{
+.itemRowWhite {
     background-color: #FFF;
 }
 
-.icon{
+.icon {
     width: 25px;
     height: 25px;
     cursor: pointer;

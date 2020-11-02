@@ -1,0 +1,39 @@
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 0.7fr 2fr 0.5fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "header header header header header header"
+      "addCarrito addCarrito addInventory addInventory addStock addStock"
+      "tableCarrito tableCarrito tableCarrito tableStock tableStock tableStock"
+      ". . . . . .";
+  }
+  .header { grid-area: header; }
+  .addCarrito { grid-area: addCarrito; }
+  .addInventory { grid-area: addInventory; }
+  .addStock { grid-area: addStock; }
+  .tableCarrito { grid-area: tableCarrito; }
+  .tableStock { grid-area: tableStock; }
+
+
+.header{
+    background-color: #415D7C;
+    color: white;
+    height: 12vh;
+    padding: 5px 5px 5px 50px;
+}
+
+.addCarrito{
+}
+
+.icon {
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+        margin-top: -5px;
+    }
+
+

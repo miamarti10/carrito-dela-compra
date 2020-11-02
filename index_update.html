@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_update.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="header">
+                <h1>BIT ACADEMY SHOP</h1>
+                <h3>Los mejores items de la city</h3>
+        </div>
+    <div class="addCarrito">
+        <select id='productList'></select>
+        <input id="unidades" type="number" min="1" max="99" placeholder="Unidades" value="1"
+        onkeypress="validationLength('unidades', 'newProductPrice')">
+        <button id="addToCart">Añadir al carrito</button>
+    </div>
+    <div class="addInventory">
+        <input id="newProductName" type="text" placeholder="Nombre del producto" maxlength="20">
+        <input id="newProductPrice" type="number" placeholder="Precio" min="0" max="99"
+        onkeypress="validationLength('newProductPrice', 'unidades')">
+        <button id="addToSelectMenu">Añadir al inventario</button>
+    </div>
+    <div class="addStock">
+        <select id="stockUnits"></select>
+        <input id="sumarUnidades" type="number" min="1" max="99" placeholder="Unidades" value="1"
+        onkeypress="validationLength('unidades', 'newProductPrice')">
+        <button id="addtoStock">Añadir al stock</button>
+    </div>
+
+        <div class="tableCarrito">
+            <h1>Total: <span id="ticket"></span> €</h1>
+        <!--table-->
+        <table id="cart">
+          <!-- <tr id="tableTitle"> -->
+          <tr>
+            <th>PRODUCT</th>
+            <th>CANTIDAD</th>
+            <th>COSTE UN.</th>
+            <th>COSTE TOTAL</th>
+            <th>ELIMINAR</th>
+          </tr>
+          <!-- </tr> -->
+        </table>
+        </div>
+
+        <div class="tableStock">
+            <table id="stockList">
+                <tr>
+                  <th>ID</th>
+                  <th>PRODUCT</th>
+                  <th>CATEGORY</th>
+                  <th>UNITS</th>
+                </tr>
+              </table>
+        </div>
+    </div>
+<script src="./js/script.js"></script>
+</body>
+</html>

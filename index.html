@@ -20,33 +20,35 @@
         <!--desplegable-->
         <div id="addCarrito">
           <select id='productList'></select>
-          <input id="unidades" type="number" min="1" max="99" placeholder="Unidades" value="1" onkeypress="validationLength('unidades', 'newProductPrice')">
+          <input id="unidades" type="number" min="1" max="99" placeholder="Unidades" value="1"
+            onkeypress="validationLength('unidades', 'newProductPrice')">
           <!--<img src="data/icons/add.svg" alt="Add" id="calcula" class="icon">-->
           <button id="addToCart">Añadir al carrito</button>
         </div>
 
         <!--Div que contiene el formulario para añadir productos al inventario de productos-->
-        <div>
+        <div id="AddInventary">
           <input id="newProductName" type="text" placeholder="Nombre del producto" maxlength="20">
-          <input id="newProductPrice" type="number" placeholder="Precio" min="0" max="99" onkeypress="validationLength('newProductPrice', 'unidades')">
+          <input id="newProductPrice" type="number" placeholder="Precio" min="0" max="99"
+            onkeypress="validationLength('newProductPrice', 'unidades')">
           <button id="addToSelectMenu">Añadir al inventario</button>
         </div>
+          <div id="stock">
+            <select id="stockUnits"></select>
+            <input id="sumarUnidades" type="number" min="1" max="99" placeholder="Unidades" value="1"
+              onkeypress="validationLength('unidades', 'newProductPrice')">
+            <!--<img src="data/icons/add.svg" alt="Add" id="calcula" class="icon">-->
+            <button id="addtoStock">Añadir al stock</button>
+          </div>
       </div>
-      <div id="stock">
-        <select id="stockUnits"></select>
-        <input id="sumarUnidades" type="number" min="1" max="99" placeholder="Unidades" value="1" onkeypress="validationLength('unidades', 'newProductPrice')">
-        <!--<img src="data/icons/add.svg" alt="Add" id="calcula" class="icon">-->
-        <button id="addtoStock">Añadir al stock</button>
-      </div>
 
-
-
+    <div id="tables">
       <div id="factura">
         <h1>Total: <span id="ticket"></span> €</h1>
         <!--table-->
         <table id="cart">
           <!-- <tr id="tableTitle"> -->
-            <tr>
+          <tr>
             <th>PRODUCT</th>
             <th>CANTIDAD</th>
             <th>COSTE UN.</th>
@@ -57,7 +59,6 @@
         </table>
       </div>
     </div>
-
     <div class="stocTable">
       <table id="stockList">
         <tr>
@@ -68,7 +69,8 @@
         </tr>
       </table>
     </div>
-
+    </div>
+  </div>
   </main>
   <!-- <script type="text/javascript" src="test.js"></script>
   <script src="./js/scriptTest.js"></script> -->
