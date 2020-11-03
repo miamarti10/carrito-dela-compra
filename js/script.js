@@ -33,8 +33,8 @@ const addSelectOption = (name, price) => {
     select.setAttribute("value", price) // Asignamos como atrinuto el precio
     select.setAttribute("name", name);
     optionList.appendChild(select);  // Añadimos el elemento al select
-    
-    
+
+
     const stSelect = document.createElement('option'); // Elemento a crear de tipo option
     stSelect.innerHTML = name; // Texto de entre los tags <option>
     stSelect.setAttribute("value", name) // Asignamos como atrinuto el precio
@@ -46,12 +46,11 @@ const addSelectOption = (name, price) => {
 // Esta función pinta una opción en el elemento option creando una opción select
 // name = nombre del producto que se va a mostrar
 const addProductCart = () => {
-    
+
     // Creamos el primer <tr>, fila, para el nuevo producto
-    const cartRow = document.createElement('tr'); 
+    const cartRow = document.createElement('tr');
     // cartRow.classList.add("itemRow");
     cartRow.classList.add('row');
-    
 
     // Creo un elemento columna (celda) <td> donde guardar las unidades del producto
     const productColumn = document.createElement('td');
@@ -62,7 +61,14 @@ const addProductCart = () => {
     const unitsColumn = document.createElement('td');
     unitsColumn.innerHTML = units.value;
     cartRow.appendChild(unitsColumn);
+    //----------------- dbg
+    let objectArrayRanking = {
+        nombre : optionList.options[optionList.selectedIndex].text,
+        unidades : Number(units.value)
+    }
 
+    printArrayRanking(objectArrayRanking);
+    //-----------------
     // Precio
     const unitPrice = document.createElement('td');
     unitPrice.innerHTML = optionList.value + " €";
@@ -84,9 +90,9 @@ const addProductCart = () => {
     carritoFila.appendChild(cartRow);  // Añadimos la nueva fila a la tabla
 
     // Sumamos el precio total al sumatorio total de todos los productos
-   // sumTotal += (optionList.value * units.value);
+    // sumTotal += (optionList.value * units.value);
     dispplaySum((optionList.value * units.value), 'add');
-    
+
     //dispplaySum();
 
 }
@@ -111,7 +117,7 @@ const loadProducts = () => {
             products.forEach(product => {
                 // Por cada producto del JSON llamamao a la función que pinta las opcines del SELECT 
                 // y le pasamos el nombre y el precio
-                addSelectOption(product.name, product.price); 
+                addSelectOption(product.name, product.price);
                 let s = {
                     product: product.name,
                     quantity: product.quantity,
@@ -121,9 +127,6 @@ const loadProducts = () => {
 
                 stock.push(s);
 
-
-                
-                
             });
 
             listStock();
@@ -151,39 +154,39 @@ const stockDemandProduct = (productName, units = Math.floor(Math.random() * 9) +
 const listStock = () => {
 
 
-    while(stockList.firstChild){
+    while (stockList.firstChild) {
         stockList.firstChild.remove();
-    }       
+    }
 
-    const stockRow = document.createElement('tr'); 
+    const stockRow = document.createElement('tr');
 
-        // Obra una cel·la
-        const stockIdColumn = document.createElement('th');
-        stockIdColumn.innerHTML = "ID";
-        stockRow.appendChild(stockIdColumn);
+    // Obra una cel·la
+    const stockIdColumn = document.createElement('th');
+    stockIdColumn.innerHTML = "ID";
+    stockRow.appendChild(stockIdColumn);
 
-        // Obra una cel·la
-        const stockNameColumns = document.createElement('tH');
-        stockNameColumns.innerHTML = "PRODUCT";
-        stockRow.appendChild(stockNameColumns);
+    // Obra una cel·la
+    const stockNameColumns = document.createElement('tH');
+    stockNameColumns.innerHTML = "PRODUCT";
+    stockRow.appendChild(stockNameColumns);
 
-        // Obra una cel·la
-        const stockCategoryColumn = document.createElement('th');
-        stockCategoryColumn.innerHTML = "CATEGORY";
-        stockRow.appendChild(stockCategoryColumn);
+    // Obra una cel·la
+    const stockCategoryColumn = document.createElement('th');
+    stockCategoryColumn.innerHTML = "CATEGORY";
+    stockRow.appendChild(stockCategoryColumn);
 
-        // Obra una cel·la
-        const stockUnitsColumns = document.createElement('th');
-        stockUnitsColumns.innerHTML = "UNITS";
-        stockRow.appendChild(stockUnitsColumns);
+    // Obra una cel·la
+    const stockUnitsColumns = document.createElement('th');
+    stockUnitsColumns.innerHTML = "UNITS";
+    stockRow.appendChild(stockUnitsColumns);
 
-        stockList.appendChild(stockRow);
+    stockList.appendChild(stockRow);
 
 
-    for(s in stock){
+    for (s in stock) {
 
         // Obro fila de la taula
-        const stockRow = document.createElement('tr'); 
+        const stockRow = document.createElement('tr');
 
         // Obra una cel·la
         const stockIdColumn = document.createElement('td');
@@ -209,15 +212,12 @@ const listStock = () => {
 
     }
 
-    
-    
-
 }
 
 // Función que loadStock()
 const loadStock = (product) => {
-    for(s in stock){
-        if(stock[s].product == product.product){
+    for (s in stock) {
+        if (stock[s].product == product.product) {
             stock[s].quantity = Number(product.quantity);
         }
     }
@@ -229,7 +229,7 @@ const loadStock = (product) => {
 const eraseProduct = (event) => {
     // al borrar el producto le mandamos el precio total a la funcion que mantiene el total
     // previousSibling recupera el td previo, en este caso el precio unitario*unidades
-    dispplaySum(event.target.previousSibling.innerHTML, 'sustrac'); 
+    dispplaySum(event.target.previousSibling.innerHTML, 'sustrac');
     event.target.parentNode.remove(); // parenNode recupera el nodo padre del elemento
 }
 
@@ -238,28 +238,32 @@ console.log(stock);
 //newStock.addEventListener('click', stockDemandProduct(stockSelect.value, sumarUnidades.value));
 
 // El eventListener no funciona si lo invoco como en la linia anterior, ni idea de poqruqe preguntar a Raul
-addToStock.addEventListener("click", function(){
+addToStock.addEventListener("click", function () {
     stockDemandProduct(stockSelect.value, sumarUnidades.value);
 });
-
-//addProductToInventori.addEventListener('click', demandProduct());
+//dbg
+addProductToInventori.addEventListener('click',
+    () => {
+        alert("a");
+    }
+); //demandProduct()
 
 // window.onload = listStock;
 
 loadProducts(); // Pintamos el selcector en el html con los valores del JSON
 
-document.getElementById("addToCart").addEventListener('click', ()=>{
+document.getElementById("addToCart").addEventListener('click', () => {
     let itemsRowElements = document.getElementsByClassName('itemRow');
-    for(let i=0; i<itemsRowElements.length; i++){
-        if(i%2!=0){
+    for (let i = 0; i < itemsRowElements.length; i++) {
+        if (i % 2 != 0) {
             itemsRowElements[i].classList.add("itemRowWhite");
         }
     }
 });
 
-let validationLength = (nameID, nameID2)=>{
+let validationLength = (nameID, nameID2) => {
     document.getElementById(nameID).addEventListener('keydown', (e) => {
-        if(document.getElementById(nameID).value.length > 1){
+        if (document.getElementById(nameID).value.length > 1) {
             document.getElementById(nameID2).style.backgroundColor = "white";
 
             alert("Introduce un número de máximo 2 digitos");
@@ -267,4 +271,48 @@ let validationLength = (nameID, nameID2)=>{
             document.getElementById(nameID).value = 1;
         }
     });
+}
+let arr = [];
+//
+function printArrayRanking(objectArrayRanking){
+    let op = false;
+        for(let i = 0; i < arr.length; i++){
+            if(arr[i].nombre === objectArrayRanking.nombre){
+                op = true;
+                arr[i].unidades += objectArrayRanking.unidades;
+            }
+        }
+        if(op == false){
+            arr.push(objectArrayRanking);
+            console.log(typeof objectArrayRanking.unidades);
+            console.log(">>>>item añadido " + objectArrayRanking.nombre);
+        }
+        addArrayRankingTable();
+}
+
+function addArrayRankingTable(){
+    let tabla = document.getElementById("ranking");
+    let filas = tabla.getElementsByClassName("rowRanking");
+    while(tabla.firstChild){
+        tabla.firstChild.remove();
+    }
+
+    for(let i = 0; i < arr.length; i++){
+        // Creamos el primer <tr>, fila, para el nuevo producto
+        const filaTR = document.createElement('tr');
+        // cartRow.classList.add("itemRow");
+        filaTR.classList.add('rowRanking');
+    
+        // Creo un elemento columna (celda) <td> donde guardar las unidades del producto
+        const celda = document.createElement('td');
+        celda.innerHTML = arr[i].nombre; // a la nueva celda le pongo el numero de unidades seleccionadas
+        filaTR.appendChild(celda); // añado la celda a la nueva fila
+
+        // Creo un elemento columna (celda) <td> donde guardar las unidades del producto
+        const celda2 = document.createElement('td');
+        celda2.innerHTML = arr[i].unidades; // a la nueva celda le pongo el numero de unidades seleccionadas
+        filaTR.appendChild(celda2); // añado la celda a la nueva fila
+
+        tabla.appendChild(filaTR);
+    }
 }

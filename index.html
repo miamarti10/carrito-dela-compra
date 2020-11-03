@@ -33,48 +33,59 @@
             onkeypress="validationLength('newProductPrice', 'unidades')">
           <button id="addToSelectMenu">Añadir al inventario</button>
         </div>
-          <div id="stock">
-            <select id="stockUnits"></select>
-            <input id="sumarUnidades" type="number" min="1" max="99" placeholder="Unidades" value="1"
-              onkeypress="validationLength('unidades', 'newProductPrice')">
-            <!--<img src="data/icons/add.svg" alt="Add" id="calcula" class="icon">-->
-            <button id="addtoStock">Añadir al stock</button>
-          </div>
+        <div id="stock">
+          <select id="stockUnits"></select>
+          <input id="sumarUnidades" type="number" min="1" max="99" placeholder="Unidades" value="1"
+            onkeypress="validationLength('unidades', 'newProductPrice')">
+          <!--<img src="data/icons/add.svg" alt="Add" id="calcula" class="icon">-->
+          <button id="addtoStock">Añadir al stock</button>
+        </div>
       </div>
 
-    <div id="tables">
-      <div id="factura">
-        <h1>Total: <span id="ticket"></span> €</h1>
-        <!--table-->
-        <table id="cart">
-          <!-- <tr id="tableTitle"> -->
+      <div id="tables">
+        <div id="factura">
+          <h1>Total: <span id="ticket"></span> €</h1>
+          <!--table-->
+          <table id="cart">
+            <!-- <tr id="tableTitle"> -->
+            <tr>
+              <th>PRODUCT</th>
+              <th>CANTIDAD</th>
+              <th>COSTE UN.</th>
+              <th>COSTE TOTAL</th>
+              <th>ELIMINAR</th>
+            </tr>
+            <!-- </tr> -->
+          </table>
+        </div>
+      </div>
+      <div class="stocTable">
+        <table id="stockList">
           <tr>
+            <th>ID</th>
             <th>PRODUCT</th>
-            <th>CANTIDAD</th>
-            <th>COSTE UN.</th>
-            <th>COSTE TOTAL</th>
-            <th>ELIMINAR</th>
+            <th>CATEGORY</th>
+            <th>UNITS</th>
           </tr>
-          <!-- </tr> -->
         </table>
       </div>
     </div>
-    <div class="stocTable">
-      <table id="stockList">
-        <tr>
-          <th>ID</th>
-          <th>PRODUCT</th>
-          <th>CATEGORY</th>
-          <th>UNITS</th>
-        </tr>
-      </table>
     </div>
-    </div>
-  </div>
+
+    <!--New Table-->
+    <table id="ranking">
+      <h2>Ranking productos</h2>
+      <tr>
+        <th>Nombre</th>
+        <th>Total Productos</th>
+      </tr>
+    </table>
+
   </main>
   <!-- <script type="text/javascript" src="test.js"></script>
   <script src="./js/scriptTest.js"></script> -->
   <script src="./js/script.js"></script>
+
 </body>
 
 </html>
