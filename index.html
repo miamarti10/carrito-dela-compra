@@ -12,27 +12,43 @@
   <header>
     <h1>BIT ACADEMY SHOP</h1>
     <h3>Los mejores items de la city</h3>
+    
   </header>
 
   <main>
     <div id="container">
+      
+        
+      
       <div id="producto">
         <!--desplegable-->
-        <div id="addCarrito">
-          <select id='productList'></select>
-          <input id="unidades" type="number" min="1" max="99" placeholder="Unidades" value="1"
-            onkeypress="validationLength('unidades', 'newProductPrice')">
-          <!--<img src="data/icons/add.svg" alt="Add" id="calcula" class="icon">-->
-          <button id="addToCart">Añadir al carrito</button>
-        </div>
+        <div class="tabconten" id="productTab">
+                        <div id="addCarrito">
+                              <select id='productList'></select>
+                              <input id="unidades" type="number" min="1" max="99" placeholder="Unidades" value="1"
+                                onkeypress="validationLength('unidades', 'newProductPrice')">
+                              <!--<img src="data/icons/add.svg" alt="Add" id="calcula" class="icon">-->
+                              <button id="addToCart">Añadir al carrito</button>
+                            </div>
+          </div>
 
         <!--Div que contiene el formulario para añadir productos al inventario de productos-->
-        <div id="AddInventary">
-          <input id="newProductName" type="text" placeholder="Nombre del producto" maxlength="20">
-          <input id="newProductPrice" type="number" placeholder="Precio" min="0" max="99"
-            onkeypress="validationLength('newProductPrice', 'unidades')">
-          <button id="addToSelectMenu">Añadir al inventario</button>
-        </div>
+        
+      
+
+        
+          <div id="AddInventary">
+            <input id="newProductName" type="text" placeholder="Nombre del producto" maxlength="20">
+            <input id="newProductPrice" type="number" placeholder="Precio" min="0" max="99"
+              onkeypress="validationLength('newProductPrice', 'unidades')">
+            <button id="addToSelectMenu">Añadir al inventario</button>
+          </div>
+
+     
+
+
+
+
         <div id="stock">
           <select id="stockUnits"></select>
           <input id="sumarUnidades" type="number" min="1" max="99" placeholder="Unidades" value="1"

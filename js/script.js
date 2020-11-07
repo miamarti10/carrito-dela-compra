@@ -43,6 +43,14 @@ const addSelectOption = (name, price) => {
     return;
 }
 
+const addProductOption = (name, price, src) => {
+    const pr = document.createElement('img');
+    pr.setAttribute("src", src);
+    pr.setAttribute("value", price);
+    pr.setAttribute("name", name)
+    document.getElementById("addCarritoImages").appendChild(pr);
+}
+
 // Esta función pinta una opción en el elemento option creando una opción select
 // name = nombre del producto que se va a mostrar
 const addProductCart = () => {
@@ -316,3 +324,55 @@ function addArrayRankingTable(){
         tabla.appendChild(filaTR);
     }
 }
+
+
+
+
+
+
+
+
+
+// PESTAÑAS
+
+// botones
+const botton1 = document.getElementById('b1');
+const botton2 = document.getElementById('b2');
+const botton3 = document.getElementById('b3');
+const compra = document.getElementById('compra');
+
+// tabs
+const tabs = document.querySelectorAll('.tabconten');
+
+// Mostramos y ocultamos los divs que tiene el contenido
+const show = (event) => {
+
+    let id = event.target.id.slice(1);
+
+    document.getElementById("productTab").style.display = "none";
+    document.getElementById("carritoTab").style.display = "none";
+    document.getElementById("stockTab").style.display = "none";
+    document.getElementById("ranking").style.display = "none";
+
+    if(event.target.id === "b1"){
+        document.getElementById("productTab").style.display = "block";
+    }
+    else if(event.target.id === "b2") {
+        document.getElementById("carritoTab").style.display = "block";
+    }
+    else if(event.target.id === "b3") {
+        document.getElementById("stockTab").style.display = "block";
+    }
+
+}
+
+// Hacemos la compra, vaciamos el carrito y restamos del stock
+const buyProduct = () => {
+   
+}
+
+// addEventListeners
+botton1.addEventListener('click', show);
+botton2.addEventListener('click', show);
+botton3.addEventListener('click', show);
+compra.addEventListener('click', buyProduct);
