@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Carrito New</title>
+</head>
+<body>
+
+    <div class="cabecera">
+        Aqui va la cabecera
+    </div>
+
+    <div id="botonera">
+        <button id="verProductos">Ver Productos</button>
+        <button id="verCarrito">Ver carrito</button>
+        <button id="verRanking">Ver ranking</button>
+        <button id="nuevosProductos">Añadir productos al catalogo</button>
+    </div>
+
+
+    <!-- menu select con los productos que se pueden comprar -->
+    <div class="verProductos" id="seleccionarProductos">
+        <select name="" id="selectProductos">
+            <input id="unidades" placeholder="1">
+            <button id="sumarAlCarrito">Añadir al carrito</button>
+        </select>
+    </div>
+
+    <div id="nuevoProducto">
+        <input type="text" placeholder="Nombre" id="nuevoProductoNombre">
+        <input type="number" placeholder="€" id="nuevoProductoPrecio">
+        <input type="number" placeholder="Unidades" id=nuevoProductoUnidades>
+        <button id="altaProducto">Guardar producto</button>
+    </div>
+
+
+    <!-- tabla con las cosas que hay en el carrito -->
+    <div class="carrito" id="divCarro">
+
+        <!-- Tabla que hace de carrito -->
+
+        <table id="tablaCarrito">
+            
+        </table>
+
+        <button id="botonComprar">Comprar</button>
+
+    </div>
+
+
+    <!-- CAJA PARA GUARDAR EL RANKING DE LOS MAS VENDIDOS -->
+    <div id="ranking">
+
+        <table id="tablaRanking">
+            
+        </table>
+
+    </div>
+
+
+
+    
+    <script src="script-new.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+.verProductos {
+  margin: 10px;
+  width: 90%;
+}
+.verProductos select {
+  margin: 5px;
+}
+
+.carrito {
+  margin: 10px;
+}
+.carrito table {
+  width: 90%;
+}
+.carrito table th {
+  text-align: left;
+}
+
+#tablaRanking {
+  width: 100%;
+}
+#tablaRanking th {
+  text-align: left;
+}
+
+.icono {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+#nuevoProducto {
+  margin: 10px;
+}
+#nuevoProducto input {
+  display: block;
+  margin: 10px;
+}
+
+/*# sourceMappingURL=style.css.map */

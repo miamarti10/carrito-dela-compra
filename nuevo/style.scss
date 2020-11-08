@@ -1,0 +1,47 @@
+$margin: 10px;
+
+.verProductos {
+    margin: $margin;
+    width: 90%;
+
+    select {
+        margin: $margin/2;
+    }
+}
+
+
+
+.carrito {
+    margin: $margin;
+
+    table {
+        width: 90%;
+
+        th {
+            text-align: left;
+        }
+    }
+}
+
+#tablaRanking {
+    width: 100%;
+
+    th {
+        text-align: left;
+    }
+}
+
+.icono {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+#nuevoProducto {
+    margin: $margin;
+
+    input {
+        display: block;
+        margin: $margin;
+    }
+}
