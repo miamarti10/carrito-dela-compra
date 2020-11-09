@@ -45,3 +45,11 @@ $margin: 10px;
         margin: $margin;
     }
 }
+
+#tablaStocks {
+    width: 100%;
+
+    th {
+        text-align: left;
+    }
+}

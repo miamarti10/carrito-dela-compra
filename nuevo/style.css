@@ -37,4 +37,11 @@
   margin: 10px;
 }
 
+#tablaStocks {
+  width: 100%;
+}
+#tablaStocks th {
+  text-align: left;
+}
+
 /*# sourceMappingURL=style.css.map */

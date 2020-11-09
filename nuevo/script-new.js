@@ -7,18 +7,30 @@ const carritoList = [];
 // Array con los productos comprados;
 const rankingList = [];
 
+// Array con el stock de cada producto
+const stockList = [];
+
 
 const loadProducts = () => {
 
     document.getElementById("seleccionarProductos").style.display = "none";
     document.getElementById("divCarro").style.display = "none";
     document.getElementById("nuevoProducto").style.display = "none";
+    document.getElementById("stocks").style.display = "none";
 
     fetch('products.json')
         .then(response => response.json())
         .then(products => {
             products.forEach(product => {
                 productList.push(product);
+
+                let s = {
+                    id: product._id,
+                    stock: product.quantity
+                }
+
+                stockList.push(s);
+
             });
         })
         .then(generarListaProductos)
@@ -62,6 +74,7 @@ const verCarro = () => {
     document.getElementById("ranking").style.display = "none";
     document.getElementById("seleccionarProductos").style.display = "none";
     document.getElementById("nuevoProducto").style.display = "none";
+    document.getElementById("stocks").style.display = "none";
 
     while(tabla_carrito.firstChild) {
         tabla_carrito.firstChild.remove();
@@ -130,6 +143,7 @@ const listaProductos = () => {
     document.getElementById("ranking").style.display = "none";
     document.getElementById("seleccionarProductos").style.display = 'block';
     document.getElementById("nuevoProducto").style.display = "none";
+    document.getElementById("stocks").style.display = "none";
 }
 
 const carrito = () => {
@@ -177,12 +191,17 @@ const comprar = () => {
             }
             rankingList.push(product_r);
         }
+
+
+        let n_stock = posicion(stockList, carritoList[p].id);
+
+        if(stockList[n_stock].stock >= Number(carritoList[p].unidades)) {
+            stockList[n_stock].stock -= Number(carritoList[p].unidades);
+        }
         
     }
 
     carritoList.length = 0;
-
-   // const rankingOrdenado = carritoList.sort((a, b) => b.unidades - a.unidades);
 
     verCarro();
 }
@@ -192,6 +211,7 @@ const ranking = () => {
     document.getElementById("seleccionarProductos").style.display = "none";
     document.getElementById("ranking").style.display = "block";
     document.getElementById("nuevoProducto").style.display = "none";
+    document.getElementById("stocks").style.display = "none";
 
     while(document.getElementById("tablaRanking").firstChild) {
         document.getElementById("tablaRanking").firstChild.remove();
@@ -235,6 +255,7 @@ const verNuevoProducto = () => {
     document.getElementById("seleccionarProductos").style.display = "none";
     document.getElementById("ranking").style.display = "none";
     document.getElementById("nuevoProducto").style.display = "block";
+    document.getElementById("stocks").style.display = "none";
 }
 
 const nuevoProductID = () => {
@@ -265,6 +286,13 @@ const crearProducto = () => {
 
     productList.push(nuevoP);
 
+    const st = {
+        id: nuevo_producto_id,
+        stock: unidades.value
+    }
+
+    stockList.push(st);
+
     const select_producto = document.createElement('option');
     select_producto.innerHTML = nombre.value;
     select_producto.setAttribute("value", nuevo_producto_id);
@@ -275,7 +303,52 @@ const crearProducto = () => {
     unidades.value = "";
 }
 
+const stock = () => {
+    document.getElementById("divCarro").style.display = "none";
+    document.getElementById("seleccionarProductos").style.display = "none";
+    document.getElementById("ranking").style.display = "none";
+    document.getElementById("nuevoProducto").style.display = "none";
+    document.getElementById("stocks").style.display = "block";
+
+
+    while(tablaStocks.firstChild) {
+        tablaStocks.firstChild.remove();
+    }
+
+    const cabecera_stocks = document.createElement('tr');
+
+    const cabecera_columna_producto = document.createElement('th');
+    cabecera_columna_producto.innerHTML = 'Producto';
+    cabecera_stocks.appendChild(cabecera_columna_producto);
+
+    const cabecera_columna_unidades = document.createElement('th');
+    cabecera_columna_unidades.innerHTML = 'Unidades';
+    cabecera_stocks.appendChild(cabecera_columna_unidades);
+
+    tablaStocks.appendChild(cabecera_stocks);
+
+    for(st in stockList) {
+        let st_producto = getProductFromID(stockList[st].id);
+
+        const fila_stock = document.createElement('tr');
+
+        const col_stock_nombre = document.createElement('td');
+        col_stock_nombre.innerHTML = st_producto.name;
+        fila_stock.appendChild(col_stock_nombre);
+
+        const col_stock_unidades = document.createElement('td');
+        col_stock_unidades.innerHTML = stockList[st].stock;
+        fila_stock.appendChild(col_stock_unidades);
+
+        tablaStocks.appendChild(fila_stock);
+
+    }
+
+
+}
+
 const tabla_carrito = document.getElementById("tablaCarrito");
+const tablaStocks = document.getElementById("tablaStocks");
 
 const sumarAlCarrito = document.getElementById("sumarAlCarrito");
 sumarAlCarrito.addEventListener('click', carrito);
@@ -297,5 +370,8 @@ altaProductos.addEventListener("click", verNuevoProducto);
 
 const nuevoProducto = document.getElementById("altaProducto");
 nuevoProducto.addEventListener("click", crearProducto);
+
+const verStocks = document.getElementById("verStocks");
+verStocks.addEventListener("click", stock);
 
 window.onload = loadProducts;
