@@ -1,5 +1,26 @@
 $margin: 10px;
 
+.flex-box {
+    display: flex;
+    flex-wrap: wrap;
+    .element {
+        margin: 10px;
+        text-align: center;
+        align-items: center;
+        img {
+            width: 200px;
+        }
+        button {
+            text-align: center;
+            display: block;
+            margin: 2px;
+            margin: auto;
+            margin-top: 3px;
+            justify-content: center;
+        }
+    }
+}
+
 .verProductos {
     margin: $margin;
     width: 90%;
