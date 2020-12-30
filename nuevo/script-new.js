@@ -13,7 +13,7 @@ const stockList = [];
 // Variable con el valor total del carrito
 let sumadorTotal = 0;
 
-
+const productosGrid = document.getElementById('flex-box');
 
 const loadProducts = () => {
 
@@ -110,12 +110,18 @@ const borrarProductoCarrito = (event) => {
 
 const verTienda = () => {
 
+    while(productosGrid.firstChild) {
+        productosGrid.firstChild.remove();
+    }
+
     console.log("ok");
 
     document.getElementById("seleccionarProductos").style.display = "block";
     document.getElementById("divCarro").style.display = "none";
     document.getElementById("nuevoProducto").style.display = "none";
     document.getElementById("stocks").style.display = "none";
+
+
 
     for(p in productList) {
         const d = document.createElement('div');
@@ -462,10 +468,7 @@ const stock = () => {
         fila_stock.appendChild(col_stock_unidades);
 
         tablaStocks.appendChild(fila_stock);
-
     }
-
-
 }
 
 const tabla_carrito = document.getElementById("tablaCarrito");
@@ -493,5 +496,7 @@ const verStocks = document.getElementById("verStocks");
 verStocks.addEventListener("click", stock);
 
 let tP = document.getElementById("total_productos");
+
+
 
 window.onload = loadProducts;
