@@ -1,16 +1,24 @@
-.flex-box {
+.verProductos {
+  margin: 10px;
+  width: 80%;
+  margin: 0 auto;
+}
+.verProductos .flex-box {
+  width: 80%;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
-.flex-box .element {
+.verProductos .flex-box .element {
   margin: 10px;
   text-align: center;
   align-items: center;
 }
-.flex-box .element img {
+.verProductos .flex-box .element img {
   width: 200px;
 }
-.flex-box .element button {
+.verProductos .flex-box .element button {
   text-align: center;
   display: block;
   margin: 2px;
@@ -18,10 +26,8 @@
   margin-top: 3px;
   justify-content: center;
 }
-
-.verProductos {
-  margin: 10px;
-  width: 90%;
+.verProductos .flex-box .element p {
+  max-width: 200px;
 }
 .verProductos select {
   margin: 5px;
