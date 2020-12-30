@@ -108,7 +108,12 @@ const borrarProductoCarrito = (event) => {
 
 }
 
-const verTienda = () => {
+const verTienda = (event) => {
+    
+    isActive();
+    let boton = event.target;
+    console.log(boton);
+    boton.classList.add('active');
 
     while(productosGrid.firstChild) {
         productosGrid.firstChild.remove();
@@ -160,7 +165,12 @@ const actualizaCarrito = (event) => {
 
 }
 
-const verCarro = () => {
+const verCarro = (event) => {
+
+    isActive();
+    let boton = event.target;
+    console.log(boton);
+    boton.classList.add('active');
 
     document.getElementById("divCarro").style.display = 'block';
     document.getElementById("ranking").style.display = "none";
@@ -312,7 +322,13 @@ const comprar = () => {
     verCarro();
 }
 
-const ranking = () => {
+const ranking = (event) => {
+
+    isActive();
+    let boton = event.target;
+    console.log(boton);
+    boton.classList.add('active');
+
     document.getElementById("divCarro").style.display = "none";
     document.getElementById("seleccionarProductos").style.display = "none";
     document.getElementById("ranking").style.display = "block";
@@ -356,7 +372,13 @@ const ranking = () => {
 
 }
 
-const verNuevoProducto = () => {
+const verNuevoProducto = (event) => {
+
+    isActive();
+    let boton = event.target;
+    console.log(boton);
+    boton.classList.add('active');
+
     document.getElementById("divCarro").style.display = "none";
     document.getElementById("seleccionarProductos").style.display = "none";
     document.getElementById("ranking").style.display = "none";
@@ -374,7 +396,12 @@ const nuevoProductID = () => {
     return id;
 }
 
-const crearProducto = () => {
+const crearProducto = (event) => {
+
+    isActive();
+    let boton = event.target;
+    console.log(boton);
+    boton.classList.add('active');
 
     const nombre = document.getElementById("nuevoProductoNombre");
     const precio = document.getElementById("nuevoProductoPrecio");
@@ -428,7 +455,13 @@ const crearProducto = () => {
     unidades.value = "";
 }
 
-const stock = () => {
+const stock = (event) => {
+
+    isActive();
+    let boton = event.target;
+    console.log(boton);
+    boton.classList.add('active');
+
     document.getElementById("divCarro").style.display = "none";
     document.getElementById("seleccionarProductos").style.display = "none";
     document.getElementById("ranking").style.display = "none";
@@ -498,5 +531,21 @@ verStocks.addEventListener("click", stock);
 let tP = document.getElementById("total_productos");
 
 
+//Color botonera activa//
+
+function isActive() {
+    document
+  .querySelectorAll('#botonera')
+  .forEach(function(el) {
+    document.querySelectorAll('li').forEach(function(li){
+        console.log(li);
+        li.classList.remove('active');
+        document.querySelectorAll('button').forEach(function(button){
+            button.classList.remove('active');
+        })
+    })
+  })
+}
 
 window.onload = loadProducts;
+

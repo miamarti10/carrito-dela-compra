@@ -1,24 +1,58 @@
-$margin: 10px;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
 
+li {
+    float: left;
+}
+
+li button {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+
+}
+
+li button:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
 
 .verProductos {
-    margin: $margin;
     width: 80%;
     margin: 0 auto;
 
     .flex-box {
         width: 80%;
         margin: 0 auto;
-        display: flex;;
+        display: flex;
+        ;
         flex-wrap: wrap;
         justify-content: center;
+
         .element {
             margin: 10px;
             text-align: center;
             align-items: center;
+
             img {
                 width: 200px;
             }
+
             button {
                 text-align: center;
                 display: block;
@@ -27,21 +61,21 @@ $margin: 10px;
                 margin-top: 3px;
                 justify-content: center;
             }
-            p{
+
+            p {
                 max-width: 200px;
             }
         }
     }
 
     select {
-        margin: $margin/2;
+
     }
 }
 
 
 
 .carrito {
-    margin: $margin;
 
     table {
         width: 90%;
@@ -67,14 +101,12 @@ $margin: 10px;
 }
 
 #nuevoProducto {
-    margin: $margin;
 
     input {
         display: block;
-        margin: $margin;
+    
     }
 }
-
 #tablaStocks {
     width: 100%;
 
