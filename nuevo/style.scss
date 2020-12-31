@@ -1,12 +1,17 @@
+
+.navbar{
+display: flex;
+justify-content: space-between;
+position: sticky;
+top: 0;
+
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
-    position: sticky;
-    top: 0;
-    width: 100%;
+    width: 55%;
 }
 
 li {
@@ -32,6 +37,29 @@ li button:hover:not(.active) {
     background-color: #4CAF50;
 }
 
+.carritoLogo{
+    display: flex;
+    align-items: center;
+    border: solid #4CAF50;
+    
+
+    img{
+        margin-left: 10px;
+    }
+
+    p{
+        margin:0px;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-family: sans-serif;
+    }
+
+}
+
+
+
+}
+
 .verProductos {
     width: 80%;
     margin: 0 auto;
@@ -48,6 +76,7 @@ li button:hover:not(.active) {
             margin: 10px;
             text-align: center;
             align-items: center;
+        
 
             img {
                 width: 200px;
@@ -68,9 +97,6 @@ li button:hover:not(.active) {
         }
     }
 
-    select {
-
-    }
 }
 
 

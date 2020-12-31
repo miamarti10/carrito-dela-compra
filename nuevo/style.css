@@ -1,19 +1,21 @@
-ul {
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+.navbar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #333;
-  position: sticky;
-  top: 0;
-  width: 100%;
+  width: 55%;
 }
-
-li {
+.navbar li {
   float: left;
 }
-
-li button {
+.navbar li button {
   display: block;
   color: white;
   text-align: center;
@@ -22,13 +24,25 @@ li button {
   background-color: transparent;
   border: none;
 }
-
-li button:hover:not(.active) {
+.navbar li button:hover:not(.active) {
   background-color: #111;
 }
-
-.active {
+.navbar .active {
   background-color: #4CAF50;
+}
+.navbar .carritoLogo {
+  display: flex;
+  align-items: center;
+  border: solid #4CAF50;
+}
+.navbar .carritoLogo img {
+  margin-left: 10px;
+}
+.navbar .carritoLogo p {
+  margin: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family: sans-serif;
 }
 
 .verProductos {
@@ -61,6 +75,7 @@ li button:hover:not(.active) {
 .verProductos .flex-box .element p {
   max-width: 200px;
 }
+
 .carrito table {
   width: 90%;
 }
